@@ -1,5 +1,7 @@
 # BrickMosaic AI
 
+[![Tests](https://github.com/wangsheng1991/brickmosaic-ai/actions/workflows/tests.yml/badge.svg)](https://github.com/wangsheng1991/brickmosaic-ai/actions/workflows/tests.yml)
+
 Turn an image into a small, inspectable brick-mosaic plan. Everything runs on your computer. Optional AI background removal isolates the subject with the lightweight **U²-Net `u2netp`** model; a deterministic color-matching step then creates a stud grid, a preview, a printable SVG pattern, and a parts-count CSV.
 
 | Original illustration | 32 × 32 mosaic preview |
@@ -27,6 +29,8 @@ brickmosaic photo.jpg --width 48 --max-colors 10 --ai-background -o output
 ```
 
 The first AI run downloads the `u2netp` weights via `rembg`. Your input image is processed locally; the app has no upload or telemetry code. You can also pass a transparent PNG and skip AI. The AI option is explicitly pinned to `u2netp`: we do **not** silently use `rembg`'s current default model, whose weight license may differ. Check model-weight terms before commercial use. See the [rembg usage guide](https://github.com/danielgatis/rembg/blob/main/USAGE.md) and [U²-Net source](https://github.com/xuebinqin/U-2-Net).
+
+AI segmentation is best treated as a draft for photos. It can select the wrong object in cartoons, logos or busy scenes. For illustrations, a transparent PNG without `--ai-background` is usually more predictable; always inspect the resulting grid.
 
 ## Outputs
 
@@ -69,3 +73,5 @@ BrickMosaic AI 是本地运行的“图片转积木马赛克”开源工具。�
 ## License
 
 MIT for this repository's code. Third-party packages and model weights have their own licenses.
+
+Background segmentation is provided by [rembg](https://github.com/danielgatis/rembg) using the `u2netp` variant of [U²-Net](https://github.com/xuebinqin/U-2-Net). No model weights are redistributed in this repository.
