@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "brickmosaic-ai"
+version = "0.1.0"
+description = "Local-first AI-assisted image-to-brick mosaic plans"
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+license = "MIT"
+authors = [{ name = "wangsheng1991" }]
+keywords = ["brick", "mosaic", "image-to-lego", "computer-vision", "ai"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+]
+dependencies = ["Pillow>=11,<14"]
+
+[project.optional-dependencies]
+ai = ["rembg[cpu]>=2.0.85,<3"]
+dev = ["pytest>=8,<10"]
+
+[project.scripts]
+brickmosaic = "brickmosaic_ai.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/wangsheng1991/brickmosaic-ai"
+Issues = "https://github.com/wangsheng1991/brickmosaic-ai/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
