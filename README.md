@@ -2,6 +2,10 @@
 
 [![Tests](https://github.com/wangsheng1991/brickmosaic-ai/actions/workflows/tests.yml/badge.svg)](https://github.com/wangsheng1991/brickmosaic-ai/actions/workflows/tests.yml)
 
+**Looking for the browser-based 3D builder? [Open Image2LEGO →](https://image2lego.com/)** Upload a reference image, inspect an editable brick model, and explore build steps in the web app. This repository is a separate, local-first **2D mosaic** tool—not the web app's source code.
+
+想在线体验图片转 3D 积木模型？[打开 Image2LEGO →](https://image2lego.com/)。本仓库是独立的本地 2D 积木马赛克工具，并非网站源码。
+
 Turn an image into a small, inspectable brick-mosaic plan. Everything runs on your computer. Optional AI background removal isolates the subject with the lightweight **U²-Net `u2netp`** model; a deterministic color-matching step then creates a stud grid, a preview, a printable SVG pattern, and a parts-count CSV.
 
 | Original illustration | 32 × 32 mosaic preview |
